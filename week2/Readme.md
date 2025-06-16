@@ -186,14 +186,6 @@ Consider implementing test cases for:
 - Librarian-specific operations
 - Exception handling for invalid operations
 
-## 📈 Extension Opportunities
-
-- Add fine calculation for overdue books
-- Implement book categories with different rules
-- Add notification system for due dates
-- Create GUI interface
-- Add database persistence
-- Implement concurrent access handling
 
 ## 📊 Visual Documentation
 
