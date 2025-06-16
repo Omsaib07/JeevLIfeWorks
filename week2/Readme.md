@@ -146,3 +146,60 @@ This assignment tests your understanding of:
 - **Strategy Pattern:** Different member behaviors
 - **Observer Pattern:** Reservation queue management
 
+## 🚀 Implementation Guidelines
+
+### Class Structure
+```
+LibraryManagementSystem/
+├── src/
+│   ├── models/
+│   │   ├── Book.java
+│   │   ├── Member.java (abstract)
+│   │   ├── StudentMember.java
+│   │   ├── TeacherMember.java
+│   │   ├── GuestMember.java
+│   │   └── Librarian.java
+│   ├── services/
+│   │   └── LibraryService.java
+│   ├── exceptions/
+│   │   ├── BookNotFoundException.java
+│   │   ├── MemberNotFoundException.java
+│   │   └── DuplicateEntryException.java
+│   └── Main.java
+└── README.md
+```
+
+### Key Implementation Points
+1. **Use proper encapsulation** with private fields and public methods
+2. **Implement abstract methods** in all Member subclasses
+3. **Handle edge cases** with appropriate exceptions
+4. **Use collections efficiently** for book and member management
+5. **Follow naming conventions** and code documentation standards
+
+## 🧪 Testing Scenarios
+
+Consider implementing test cases for:
+- Issuing books to different member types
+- Handling book limits and overdue scenarios
+- Reservation queue functionality
+- Search operations with various keywords
+- Librarian-specific operations
+- Exception handling for invalid operations
+
+## 📈 Extension Opportunities
+
+- Add fine calculation for overdue books
+- Implement book categories with different rules
+- Add notification system for due dates
+- Create GUI interface
+- Add database persistence
+- Implement concurrent access handling
+
+## 📊 Visual Documentation
+
+### Class Diagram
+![Class Diagram](week2/ClassDiagram.png)
+
+### Output Screenshot
+![Output](week2/Output.png)
+
