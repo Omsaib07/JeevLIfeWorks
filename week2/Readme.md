@@ -186,6 +186,7 @@ Consider implementing test cases for:
 - Librarian-specific operations
 - Exception handling for invalid operations
 
+<<<<<<< HEAD
 ## 📈 Extension Opportunities
 
 - Add fine calculation for overdue books
@@ -194,13 +195,15 @@ Consider implementing test cases for:
 - Create GUI interface
 - Add database persistence
 - Implement concurrent access handling
+=======
+>>>>>>> c2bcb1fa3722e3ccdd86b02b3c3185bdd99eed9d
 
 ## 📊 Visual Documentation
 
 ### Class Diagram
-![Class Diagram](week2/ClassDiagram.png)
+![Class Diagram](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week2/ClassDiagram.png?raw=true)
 
 ### Output Screenshot
-![Output](week2/Output.png)
+![Output](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week2/Output.png?raw=true)
 
 ---
