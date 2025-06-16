@@ -198,8 +198,9 @@ Consider implementing test cases for:
 ## 📊 Visual Documentation
 
 ### Class Diagram
-![Class Diagram](week2/ClassDiagram.png)
+![Class Diagram](https://raw.githubusercontent.com/[Omsaib07]/[JeevLifeWorks]/main/week2/ClassDiagram.png)
+
 
 ### Output Screenshot
-![Output](week2/Output.png)
+![Output](https://raw.githubusercontent.com/[Omsaib07]/[JeevLifeWorks]/main/week2/Output.png)
 
