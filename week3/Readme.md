@@ -93,19 +93,19 @@ A comprehensive Java-based Student Management System that allows users to manage
 Below are example outputs showing the system in action:
 
 ### Example 1: 
-![Example 1 - Main Menu](Example1.png)
+![Example 1 - Main Menu](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week3/Example1.png?raw=true)
 
 ### Example 2:
-![Example 2 - Adding Student](Example2.png)
+![Example 2 - Adding Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week3/Example2.png?raw=true)
 
 ### Example 3:
-![Example 3 - Search Student](Example3.png)
+![Example 3 - Search Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week3/Example3.png?raw=true)
 
 ### Example 4: 
-![Example 4 - Update Student](Example4.png)
+![Example 4 - Update Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week3/Example4.png?raw=true)
 
 ### Example 5: 
-![Example 5 - Display All Students](Example5.png)
+![Example 5 - Display All Students](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week3/Example5.png?raw=true)
 
 ## 🚨 Error Handling
 
