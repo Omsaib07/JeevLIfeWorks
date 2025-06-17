@@ -45,8 +45,6 @@ A comprehensive Java-based Student Management System that allows users to manage
 - Non-empty field validation for name, grade, and address
 - Comprehensive input sanitization
 
-
-
 ## 📋 Menu Options
 
 | Option | Description |
@@ -89,7 +87,25 @@ A comprehensive Java-based Student Management System that allows users to manage
 7. **Exit and restart** to verify data persistence
 
 
-```
+
+## 📸 Example Outputs
+
+Below are example outputs showing the system in action:
+
+### Example 1: 
+![Example 1 - Main Menu](Example1.png)
+
+### Example 2:
+![Example 2 - Adding Student](Example2.png)
+
+### Example 3:
+![Example 3 - Search Student](Example3.png)
+
+### Example 4: 
+![Example 4 - Update Student](Example4.png)
+
+### Example 5: 
+![Example 5 - Display All Students](Example5.png)
 
 ## 🚨 Error Handling
 
@@ -124,6 +140,7 @@ The system handles the following error scenarios:
 | Documentation | ✅ Comprehensive comments and documentation |
 
 
+
 ## 🔧 Troubleshooting
 
 ### Common Issues and Solutions
@@ -147,13 +164,4 @@ The system handles the following error scenarios:
 - ✅ Ensure all `.class` files are present
 - ✅ Recompile all Java files if needed
 
-## 📞 Support
 
-For technical support or questions about this implementation:
-- 📖 Review the inline code comments for detailed explanations
-- 🔍 Check the troubleshooting section above
-- ✅ Verify all requirements are met as specified
-
----
-
-## 🏃‍♂️ Quick Start
