@@ -118,22 +118,22 @@ mvn jacoco:report
 ## 📸 Screenshots
 
 ### Main Menu
-![Main Menu](screenshots/main-menu.png)
+![Main Menu](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/MainMenu.png?raw=true)
 *Application's main menu showing available options*
 
 ### Add Student
-![Add Student](screenshots/add-student.png)
+![Add Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/AddStudent.png?raw=true)
 *Form for adding a new student record*
 
 ### View All Students
-![View All Students](screenshots/view-students.png)
+![View All Students](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/ViewAllStudents.png?raw=true)
 *Display of all student records in the system*
 
 ### Update Student
-![Update Student](screenshots/update-student.png)
+![Update Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/UpdateStudent.png?raw=true)
 *Student record update interface*
 
 ### CSV Export
-![CSV Export](screenshots/csv-export.png)
+![CSV Export](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/CSVExport.png?raw=true)
 *CSV export functionality and success message*
 
