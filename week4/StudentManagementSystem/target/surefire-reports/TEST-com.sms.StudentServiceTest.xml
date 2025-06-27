@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.sms.StudentServiceTest" time="0.224" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/test-classes:/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/classes:/Users/omsaib/.m2/repository/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar:/Users/omsaib/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar:/Users/omsaib/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/Users/omsaib/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar:/Users/omsaib/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/omsaib/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/omsaib/.m2/repository/org/mockito/mockito-core/3.12.4/mockito-core-3.12.4.jar:/Users/omsaib/.m2/repository/net/bytebuddy/byte-buddy/1.11.13/byte-buddy-1.11.13.jar:/Users/omsaib/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.13/byte-buddy-agent-1.11.13.jar:/Users/omsaib/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/omsaib/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/surefire/surefirebooter-20250628003634673_3.jar /Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/surefire 2025-06-28T00-36-34_563-jvmRun1 surefire-20250628003634673_1tmp surefire_0-20250628003634673_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/test-classes:/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/classes:/Users/omsaib/.m2/repository/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar:/Users/omsaib/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar:/Users/omsaib/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/Users/omsaib/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar:/Users/omsaib/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/omsaib/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/omsaib/.m2/repository/org/mockito/mockito-core/3.12.4/mockito-core-3.12.4.jar:/Users/omsaib/.m2/repository/net/bytebuddy/byte-buddy/1.11.13/byte-buddy-1.11.13.jar:/Users/omsaib/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.13/byte-buddy-agent-1.11.13.jar:/Users/omsaib/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/omsaib/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/omsaib"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="jdk.attach.allowAttachSelf" value="true"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem/target/surefire/surefirebooter-20250628003634673_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="21.0.4+7-LTS"/>
+    <property name="user.name" value="omsaib"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.5"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.4+7"/>
+    <property name="localRepository" value="/Users/omsaib/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/7c/rtftgmhj2js9wm7j86jpb4j00000gn/T/"/>
+    <property name="java.version" value="21.0.4"/>
+    <property name="user.dir" value="/Users/omsaib/Desktop/JeevLifeWorks/week4/StudentManagementSystem"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/omsaib/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.4+7-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="65.0"/>
+    <property name="jacoco-agent.destfile" value="target/jacoco.exec"/>
+  </properties>
+  <testcase name="testAddStudentWithInvalidEmail" classname="com.sms.StudentServiceTest" time="0.179">
+    <system-err><![CDATA[Jun 28, 2025 12:36:35 AM com.sms.StudentDao <clinit>
+INFO: MySQL JDBC Driver successfully registered
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchStudents" classname="com.sms.StudentServiceTest" time="0.003"/>
+  <testcase name="testUpdateStudent" classname="com.sms.StudentServiceTest" time="0.003"/>
+  <testcase name="testUpdateStudentWithInvalidData" classname="com.sms.StudentServiceTest" time="0"/>
+  <testcase name="testAddValidStudent" classname="com.sms.StudentServiceTest" time="0"/>
+  <testcase name="testAddStudentWithInvalidAge" classname="com.sms.StudentServiceTest" time="0"/>
+  <testcase name="testDeleteStudent" classname="com.sms.StudentServiceTest" time="0"/>
+  <testcase name="testGetNonExistingStudent" classname="com.sms.StudentServiceTest" time="0.001"/>
+  <testcase name="testGetAllStudents" classname="com.sms.StudentServiceTest" time="0"/>
+  <testcase name="testGetExistingStudent" classname="com.sms.StudentServiceTest" time="0"/>
+</testsuite>
