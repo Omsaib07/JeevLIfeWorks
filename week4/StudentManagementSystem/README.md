@@ -16,8 +16,7 @@ A Java-based application for managing student records with MySQL database integr
 - **JDBC** – Database connectivity
 - **MySQL** – Relational data storage
 - **Log4j2** – Logging framework
-- **JUnit 4 & Mockito** – Unit testing
-- **H2 Database** – In-memory testing
+- **JUnit 4** – Unit testing
 - **Maven** – Build and dependency management
 
 ## 🧱 Architecture
