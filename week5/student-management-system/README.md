@@ -175,23 +175,23 @@ The application includes global exception handling for:
 ## 📸 Screenshots
 
 ### Swagger Menu
-![Main Menu](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/MainMenu.png?raw=true)
+![Main Menu](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Swagger.png?raw=true)
 *Application's main menu showing available options*
 
 ### GET Student
-![GET Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/AddStudent.png?raw=true)
+![GET Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Get.png?raw=true)
 *Form for adding a new student record*
 
 ### Before PUT
-![Before](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/ViewAllStudents.png?raw=true)
+![Before](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/BeforePut.png?raw=true)
 *Display of all student records in the system*
 
 ### After PUT
-![Updated](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/UpdateStudent.png?raw=true)
+![Updated](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/AfterPut.png?raw=true)
 *Student record update interface*
 
 ### POST
-![Post](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/CSVExport.png?raw=true)
+![Post](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Post.png?raw=true)
 
 ### DELETE
-![Delete](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week4/StudentManagementSystem/Screenshots/JunitTest.png?raw=true)
+![Delete](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Delete.png?raw=true)
