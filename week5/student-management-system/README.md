@@ -180,15 +180,15 @@ The application includes global exception handling for:
 
 ### GET Student
 ![GET Student](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Get.png?raw=true)
-*Form for adding a new student record*
+
 
 ### Before PUT
 ![Before](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/BeforePut.png?raw=true)
-*Display of all student records in the system*
+
 
 ### After PUT
 ![Updated](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/AfterPut.png?raw=true)
-*Student record update interface*
+
 
 ### POST
 ![Post](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week5/student-management-system/Screenshots/Post.png?raw=true)
