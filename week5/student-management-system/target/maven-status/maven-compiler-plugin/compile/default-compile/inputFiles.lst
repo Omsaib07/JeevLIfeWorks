@@ -1,0 +1,11 @@
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/StudentManagementSystemApplication.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/exception/ResourceNotFoundException.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/controller/StudentController.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/dto/StudentResponseDTO.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/config/SwaggerConfig.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/service/StudentService.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/service/impl/StudentServiceImpl.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/model/Student.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/exception/GlobalExceptionHandler.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/dto/StudentRequestDTO.java
+/Users/omsaib/Desktop/JeevLifeWorks/week5/student-management-system/src/main/java/com/example/sms/repository/StudentRepository.java
