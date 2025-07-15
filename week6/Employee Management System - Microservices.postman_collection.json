@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "2958e700-3e0d-4459-a6ee-469db1e37980",
+		"name": "Employee Management System - Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46510963",
+		"_collection_link": "https://megha-378812.postman.co/workspace/Megha's-Workspace~2b97b73d-91ad-4ee1-87dc-473eecf25bdd/collection/46510963-2958e700-3e0d-4459-a6ee-469db1e37980?action=share&source=collection_link&creator=46510963"
+	},
+	"item": [
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Omsai\",\n  \"password\": \"Omsai@123\",\n  \"email\": \"Omsai@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Omsai\",\n  \"password\": \"omsai@123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MjQxODU4MCwiZXhwIjoxNzUyNDU0NTgwfQ.CDZzJSZTEafSS7zZesdVonGF5vtiMnHcwBX5SHBoiUI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Service",
+			"item": [
+				{
+					"name": "Get All Employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWdoYSIsImlhdCI6MTc1MjQyMDkyOSwiZXhwIjoxNzUyNDU2OTI5fQ.Kij0wzvws0xF-WA2rDNn_b693Ig1SNqOti08Kuf_Jhc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWdoYSIsImlhdCI6MTc1MjQyMDkyOSwiZXhwIjoxNzUyNDU2OTI5fQ.Kij0wzvws0xF-WA2rDNn_b693Ig1SNqOti08Kuf_Jhc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Omsai\",\n  \"department\": \"IT\",\n  \"position\": \"QA\",\n  \"salary\": 500000,\n  \"email\":\"omsai@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWdoYSIsImlhdCI6MTc1MjQyMDkyOSwiZXhwIjoxNzUyNDU2OTI5fQ.Kij0wzvws0xF-WA2rDNn_b693Ig1SNqOti08Kuf_Jhc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWdoYSIsImlhdCI6MTc1MjQyMDkyOSwiZXhwIjoxNzUyNDU2OTI5fQ.Kij0wzvws0xF-WA2rDNn_b693Ig1SNqOti08Kuf_Jhc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Smith\",\n  \"department\": \"HR\",\n  \"position\": \"Manager\",\n  \"salary\": 80000,\n   \"email\":\"megha@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWdoYSIsImlhdCI6MTc1MjQyMDkyOSwiZXhwIjoxNzUyNDU2OTI5fQ.Kij0wzvws0xF-WA2rDNn_b693Ig1SNqOti08Kuf_Jhc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
