@@ -97,6 +97,18 @@ Access the H2 database console at: `http://localhost:8080/h2-console`
 - JDBC URL: `jdbc:h2:mem:testdb`
 - Username: `sa`
 - Password: (leave blank)
+## Screenshots
+
+### GET
+![Post](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week7/Screenshots/GET.png?raw=true)
+
+### PUT
+![Delete](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week7/Screenshots/PUT.png?raw=true)
+### POST
+![Post](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week7/Screenshots/POST.png?raw=true)
+
+### DELETE
+![Delete](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week7/Screenshots/DELETE.png?raw=true)
 
 ## 🔧 Project Structure
 
