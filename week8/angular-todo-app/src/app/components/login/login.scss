@@ -1,0 +1,395 @@
+// src/app/components/login/login.scss
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+.login-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px 24px;
+  text-align: center;
+
+  .login-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+
+    .title-icon {
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .login-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+}
+
+.login-content {
+  padding: 32px 24px 24px;
+
+  @media (max-width: 768px) {
+    padding: 24px 16px 16px;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  .mat-mdc-form-field-error {
+    font-size: 12px;
+    color: #f44336;
+  }
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -8px 0 8px 0;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .remember-me {
+    font-size: 14px;
+    color: #666;
+
+    .mat-mdc-checkbox-label {
+      font-size: 14px;
+    }
+  }
+
+  .forgot-password {
+    font-size: 12px;
+    color: #667eea;
+    text-transform: none;
+    padding: 4px 8px;
+    min-width: auto;
+    height: auto;
+    line-height: 1.2;
+
+    &:hover {
+      background-color: rgba(102, 126, 234, 0.1);
+    }
+  }
+}
+
+.login-button {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  .button-spinner {
+    margin-right: 8px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.demo-button {
+  height: 44px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #667eea;
+  color: #667eea;
+
+  &:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+  }
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #ffebee;
+  border-radius: 8px;
+  color: #c62828;
+  font-size: 14px;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.login-actions {
+  padding: 16px 24px;
+  background-color: #fafafa;
+  border-top: 1px solid #e0e0e0;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.signup-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+
+  button {
+    font-weight: 500;
+    text-transform: none;
+  }
+}
+
+.tips-card {
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: white;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    order: -1; // Show tips card first on mobile
+  }
+
+  mat-card-content {
+    padding: 24px;
+  }
+}
+
+.tips-content {
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 8px 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #667eea;
+    margin-top: 2px;
+  }
+
+  span {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+  }
+}
+
+// Custom Material Design overrides
+.mat-mdc-card {
+  --mdc-elevated-card-container-elevation: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mat-mdc-form-field-outline {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-mdc-form-field-outline-thick {
+  color: #667eea;
+}
+
+// Button hover effects
+.mat-mdc-raised-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mat-mdc-button:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.mat-mdc-outlined-button:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+// Loading state styles
+.mat-mdc-raised-button:disabled {
+  background-color: rgba(102, 126, 234, 0.5) !important;
+  color: white !important;
+}
+
+// Checkbox customization
+.mat-mdc-checkbox.mat-primary {
+  --mdc-checkbox-selected-checkmark-color: white;
+  --mdc-checkbox-selected-container-color: #667eea;
+  --mdc-checkbox-selected-hover-container-color: #667eea;
+  --mdc-checkbox-selected-focus-container-color: #667eea;
+  --mdc-checkbox-selected-pressed-container-color: #667eea;
+}
+
+// Animation for form fields
+.mat-mdc-form-field {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design improvements
+@media (max-width: 480px) {
+  .login-container {
+    padding: 5px;
+  }
+  
+  .login-card {
+    border-radius: 8px;
+  }
+  
+  .login-header {
+    padding: 24px 16px;
+    
+    .login-title {
+      font-size: 22px;
+      
+      .title-icon {
+        font-size: 26px;
+        width: 26px;
+        height: 26px;
+      }
+    }
+    
+    .login-subtitle {
+      font-size: 13px;
+    }
+  }
+  
+  .login-content {
+    padding: 20px 16px;
+  }
+  
+  .login-button {
+    height: 44px;
+    font-size: 14px;
+  }
+  
+  .demo-button {
+    height: 40px;
+    font-size: 13px;
+  }
+}
+
+// Focus styles for accessibility
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-outline-thick {
+  color: #667eea;
+}
+
+.mat-mdc-input-element:focus {
+  outline: none;
+}
+
+// Smooth transitions
+.mat-mdc-form-field,
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button {
+  transition: all 0.2s ease;
+}

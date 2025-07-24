@@ -1,0 +1,400 @@
+<!-- src/app/components/todo/todo.html -->
+
+<div class="todo-container">
+  <!-- Main Toolbar -->
+  <mat-toolbar class="main-toolbar" color="primary">
+    <button 
+      mat-icon-button 
+      (click)="toggleSidenav()"
+      class="menu-button"
+      aria-label="Toggle menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    
+    <span class="app-title">
+      <mat-icon>assignment</mat-icon>
+      Todo Dashboard
+    </span>
+    
+    <span class="spacer"></span>
+    
+    <!-- User Info -->
+    <div class="user-info" *ngIf="currentUser">
+      <span class="user-name">{{ currentUser.fullName }}</span>
+      <button 
+        mat-icon-button 
+        [matMenuTriggerFor]="userMenu"
+        aria-label="User menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <!-- User Menu -->
+  <mat-menu #userMenu="matMenu">
+    <div class="user-menu-header">
+      <mat-icon>person</mat-icon>
+      <div class="user-details">
+        <div class="user-name">{{ currentUser?.fullName }}</div>
+        <div class="user-email">{{ currentUser?.email }}</div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+  <!-- Main Content with Sidenav -->
+  <mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar -->
+    <mat-sidenav 
+      #sidenav
+      [(opened)]="sidenavOpened"
+      mode="over"
+      class="sidenav">
+      
+      <!-- Statistics Card -->
+      <mat-card class="stats-card">
+        <mat-card-header>
+          <mat-card-title class="stats-title">
+            <mat-icon>analytics</mat-icon>
+            Statistics
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="stat-item">
+            <span class="stat-label">Total</span>
+            <span class="stat-value total">{{ stats.total }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Pending</span>
+            <span class="stat-value pending">{{ stats.pending }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Completed</span>
+            <span class="stat-value completed">{{ stats.completed }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Filter Options -->
+      <mat-nav-list class="filter-list">
+        <h3 mat-subheader>
+          <mat-icon>filter_list</mat-icon>
+          Filter Tasks
+        </h3>
+        
+        <mat-list-item 
+          *ngFor="let filter of filterOptions"
+          (click)="changeFilter(filter.value)"
+          [class.active]="currentFilter === filter.value">
+          <mat-icon matListItemIcon>{{ filter.icon }}</mat-icon>
+          <div matListItemTitle>{{ filter.label }}</div>
+          <div matListItemMeta>
+            <mat-chip-set>
+              <mat-chip *ngIf="filter.value === 'all'">{{ stats.total }}</mat-chip>
+              <mat-chip *ngIf="filter.value === 'pending'">{{ stats.pending }}</mat-chip>
+              <mat-chip *ngIf="filter.value === 'completed'">{{ stats.completed }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-list-item>
+        
+        <mat-divider></mat-divider>
+        
+        <!-- Actions -->
+        <mat-list-item (click)="clearCompletedTodos()" class="action-item">
+          <mat-icon matListItemIcon color="warn">delete_sweep</mat-icon>
+          <div matListItemTitle>Clear Completed</div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main Content -->
+    <mat-sidenav-content class="main-content">
+      <div class="content-wrapper">
+        
+        <!-- Search and Filter Header -->
+        <mat-card class="search-card">
+          <mat-card-content>
+            <div class="search-header">
+              <h2 class="current-filter">
+                <mat-icon>{{ getCurrentFilterIcon() }}</mat-icon>
+                {{ getCurrentFilterLabel() }}
+                <mat-chip class="filter-count">{{ filteredTodos.length }}</mat-chip>
+              </h2>
+              
+              <!-- Search Form -->
+              <form [formGroup]="searchForm" class="search-form">
+                <mat-form-field appearance="outline" class="search-field">
+                  <mat-label>Search todos...</mat-label>
+                  <input 
+                    matInput 
+                    formControlName="searchTerm"
+                    placeholder="Search by title or description"
+                    autocomplete="off">
+                  <mat-icon matPrefix>search</mat-icon>
+                  <button 
+                    *ngIf="searchTerm"
+                    mat-icon-button 
+                    matSuffix 
+                    type="button"
+                    (click)="clearSearch()"
+                    aria-label="Clear search">
+                    <mat-icon>clear</mat-icon>
+                  </button>
+                </mat-form-field>
+              </form>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Add Todo Form -->
+        <mat-card class="add-todo-card">
+          <mat-card-header>
+            <mat-card-title class="add-todo-title">
+              <mat-icon>add_task</mat-icon>
+              Add New Todo
+            </mat-card-title>
+          </mat-card-header>
+          
+          <mat-card-content>
+            <form [formGroup]="addTodoForm" (ngSubmit)="onAddTodo()" class="add-todo-form">
+              <div class="form-row">
+                <!-- Title Field -->
+                <mat-form-field appearance="outline" class="title-field">
+                  <mat-label>Task Title</mat-label>
+                  <input 
+                    matInput 
+                    formControlName="title"
+                    placeholder="What needs to be done?"
+                    maxlength="200">
+                  <mat-icon matSuffix>title</mat-icon>
+                  <mat-error *ngIf="hasError('add', 'title')">
+                    {{ getErrorMessage('add', 'title') }}
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Due Date Field -->
+                <mat-form-field appearance="outline" class="date-field">
+                  <mat-label>Due Date (Optional)</mat-label>
+                  <input 
+                    matInput 
+                    [matDatepicker]="addDatePicker"
+                    formControlName="dueDate"
+                    placeholder="Select due date">
+                  <mat-datepicker-toggle matIconSuffix [for]="addDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #addDatePicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <!-- Description Field -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Description (Optional)</mat-label>
+                <textarea 
+                  matInput 
+                  formControlName="description"
+                  placeholder="Add more details about this task..."
+                  rows="3"
+                  maxlength="500">
+                </textarea>
+                <mat-icon matSuffix>description</mat-icon>
+                <mat-error *ngIf="hasError('add', 'description')">
+                  {{ getErrorMessage('add', 'description') }}
+                </mat-error>
+                <mat-hint align="end">
+                  {{ addTodoForm.get('description')?.value?.length || 0 }}/500
+                </mat-hint>
+              </mat-form-field>
+
+              <!-- Submit Button -->
+              <div class="form-actions">
+                <button 
+                  mat-raised-button 
+                  color="primary" 
+                  type="submit"
+                  [disabled]="isAddingTodo || addTodoForm.invalid"
+                  class="add-button">
+                  <mat-spinner *ngIf="isAddingTodo" diameter="20"></mat-spinner>
+                  <mat-icon *ngIf="!isAddingTodo">add</mat-icon>
+                  {{ isAddingTodo ? 'Adding...' : 'Add Todo' }}
+                </button>
+                
+                <button 
+                  mat-button 
+                  type="button"
+                  (click)="addTodoForm.reset()"
+                  [disabled]="isAddingTodo">
+                  <mat-icon>clear</mat-icon>
+                  Clear
+                </button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Loading Indicator -->
+        <div *ngIf="isLoading" class="loading-container">
+          <mat-spinner diameter="50"></mat-spinner>
+          <p>Loading your todos...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div *ngIf="!isLoading && filteredTodos.length === 0 && searchTerm" class="empty-state">
+          <mat-icon>search_off</mat-icon>
+          <h3>No todos found</h3>
+          <p>No todos match your search "{{ searchTerm }}"</p>
+          <button mat-raised-button color="primary" (click)="clearSearch()">
+            <mat-icon>clear</mat-icon>
+            Clear Search
+          </button>
+        </div>
+
+        <div *ngIf="!isLoading && filteredTodos.length === 0 && !searchTerm && todos.length === 0" class="empty-state">
+          <mat-icon>assignment</mat-icon>
+          <h3>No todos yet</h3>
+          <p>Create your first todo to get started!</p>
+        </div>
+
+        <div *ngIf="!isLoading && filteredTodos.length === 0 && !searchTerm && todos.length > 0" class="empty-state">
+          <mat-icon>filter_list_off</mat-icon>
+          <h3>No {{ getCurrentFilterLabel().toLowerCase() }}</h3>
+          <p>Try a different filter to see your todos.</p>
+        </div>
+
+        <!-- Todos List -->
+        <div *ngIf="!isLoading && filteredTodos.length > 0" class="todos-container">
+          <mat-card 
+            *ngFor="let todo of filteredTodos; trackBy: trackByTodoId"
+            class="todo-card"
+            [ngClass]="{
+              'completed': todo.completed,
+              'editing': editingTodoId === todo.id,
+              'overdue': getTodoPriorityClass(todo) === 'overdue',
+              'due-today': getTodoPriorityClass(todo) === 'due-today',
+              'due-tomorrow': getTodoPriorityClass(todo) === 'due-tomorrow',
+              'due-soon': getTodoPriorityClass(todo) === 'due-soon'
+            }">
+            
+            <!-- Edit Mode -->
+            <div *ngIf="editingTodoId === todo.id" class="edit-mode">
+              <form [formGroup]="editTodoForm" (ngSubmit)="saveEditTodo()" class="edit-form">
+                <div class="form-row">
+                  <mat-form-field appearance="outline" class="title-field">
+                    <mat-label>Task Title</mat-label>
+                    <input 
+                      matInput 
+                      formControlName="title"
+                      maxlength="200">
+                    <mat-error *ngIf="hasError('edit', 'title')">
+                      {{ getErrorMessage('edit', 'title') }}
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="date-field">
+                    <mat-label>Due Date</mat-label>
+                    <input 
+                      matInput 
+                      [matDatepicker]="editDatePicker"
+                      formControlName="dueDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="editDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #editDatePicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Description</mat-label>
+                  <textarea 
+                    matInput 
+                    formControlName="description"
+                    rows="3"
+                    maxlength="500">
+                  </textarea>
+                  <mat-hint align="end">
+                    {{ editTodoForm.get('description')?.value?.length || 0 }}/500
+                  </mat-hint>
+                </mat-form-field>
+
+                <div class="edit-actions">
+                  <button 
+                    mat-raised-button 
+                    color="primary" 
+                    type="submit"
+                    [disabled]="editTodoForm.invalid">
+                    <mat-icon>save</mat-icon>
+                    Save
+                  </button>
+                  <button 
+                    mat-button 
+                    type="button"
+                    (click)="cancelEditTodo()">
+                    <mat-icon>cancel</mat-icon>
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- View Mode -->
+            <div *ngIf="editingTodoId !== todo.id" class="view-mode">
+              <mat-card-content class="todo-content">
+                <div class="todo-header">
+                  <mat-checkbox 
+                    [checked]="todo.completed"
+                    (change)="toggleTodoCompletion(todo)"
+                    class="todo-checkbox"
+                    [color]="'primary'">
+                  </mat-checkbox>
+                  
+                  <div class="todo-details">
+                    <h3 class="todo-title" [class.completed]="todo.completed">
+                      {{ todo.title }}
+                    </h3>
+                    
+                    <div class="todo-meta">
+                      <span class="created-date">
+                        <mat-icon>schedule</mat-icon>
+                        Created {{ todo.createdAt | date:'short' }}
+                      </span>
+                      
+                      <span *ngIf="todo.dueDate" class="due-date" 
+                            [ngClass]="getTodoPriorityClass(todo)">
+                        <mat-icon>event</mat-icon>
+                        {{ formatDueDate(todo.dueDate) }}
+                      </span>
+                    </div>
+                    
+                    <p *ngIf="todo.description" class="todo-description" 
+                       [class.completed]="todo.completed">
+                      {{ todo.description }}
+                    </p>
+                  </div>
+                  
+                  <div class="todo-actions">
+                    <button 
+                      mat-icon-button 
+                      (click)="startEditTodo(todo)"
+                      [disabled]="todo.completed"
+                      matTooltip="Edit todo"
+                      class="edit-btn">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    
+                    <button 
+                      mat-icon-button 
+                      (click)="deleteTodo(todo)"
+                      matTooltip="Delete todo"
+                      class="delete-btn">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-card-content>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

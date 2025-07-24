@@ -1,0 +1,261 @@
+// src/app/app.scss
+
+/**
+ * Root component styles
+ * Contains global styles that apply to the entire application
+ */
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+// Global theme variables
+:root {
+  --primary-color: #667eea;
+  --primary-dark: #5a6fd8;
+  --secondary-color: #764ba2;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --info-color: #2196f3;
+  
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-disabled: #999999;
+  
+  --background-primary: #ffffff;
+  --background-secondary: #f5f5f5;
+  --background-tertiary: #fafafa;
+  
+  --border-color: #e0e0e0;
+  --divider-color: #eeeeee;
+  
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  --border-radius: 8px;
+  --border-radius-large: 12px;
+  
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+// Light theme (default)
+[data-theme="light"] {
+  --primary-color: #667eea;
+  --background-primary: #ffffff;
+  --background-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+}
+
+// Dark theme (for future implementation)
+[data-theme="dark"] {
+  --primary-color: #8b9fef;
+  --background-primary: #1a1a1a;
+  --background-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+}
+
+// Reset and normalize styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+  
+  // Prevent text selection on UI elements
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  // Enable text selection for content areas
+  input, textarea, [contenteditable] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+}
+
+// Improve focus visibility for accessibility
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// Remove focus outline for mouse users
+.mouse-user *:focus {
+  outline: none;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Custom scrollbar styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+  
+  &:hover {
+    background: var(--text-disabled);
+  }
+}
+
+// Loading animation
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// Responsive breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-xs - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-xs}) and (max-width: #{$breakpoint-sm - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+// Print styles
+@media print {
+  .app-container {
+    height: auto;
+    overflow: visible;
+  }
+  
+  // Hide non-essential elements when printing
+  .mat-toolbar,
+  .mat-sidenav,
+  button,
+  .mat-fab,
+  .mat-mini-fab {
+    display: none !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-secondary: #000000;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
