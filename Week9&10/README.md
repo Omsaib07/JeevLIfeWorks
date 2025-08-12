@@ -139,3 +139,17 @@ Smart Task Manager is a full-stack web application for efficient task management
 
 ---
 
+
+## Screenshots
+
+### REGISTER
+![Register](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week9&10/ScreenShots/Register.png?raw=true)
+
+### LOGIN
+![Login](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week9&10/ScreenShots/Login.png?raw=true)
+
+### MAIL
+![Mail](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week9&10/ScreenShots/Mail.png?raw=true)
+
+### HOME
+![Home](https://github.com/Omsaib07/JeevLIfeWorks/blob/main/week9&10/ScreenShots/Home.png?raw=true)
