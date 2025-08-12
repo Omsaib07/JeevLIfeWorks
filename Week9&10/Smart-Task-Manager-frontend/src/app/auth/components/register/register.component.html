@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Register</h2>
+  <!-- Registration form; calls onSubmit() method on submit -->
+  <form (ngSubmit)="onSubmit()">
+    <!-- Username input field -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </div>
+    <!-- Email input field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <!-- Password input field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+    </div>
+    <!-- Submit button -->
+    <button type="submit">Register</button>
+  </form>
+  <!-- Link to login page for existing users -->
+  <p>Already have an account? <a [routerLink]="['/login']">Log in here</a></p>
+</div>

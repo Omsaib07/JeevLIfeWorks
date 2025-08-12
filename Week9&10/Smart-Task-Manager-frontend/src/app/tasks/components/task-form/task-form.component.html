@@ -1,0 +1,59 @@
+<!-- 
+  Task Form Template
+  This form is bound to an Angular Reactive Form (FormGroup) called 'taskForm'
+  It is used for creating a new task and will emit the data to the parent component.
+-->
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <!-- Task Title Input -->
+  <div class="mb-4">
+    <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+    <!-- formControlName links this input to the 'title' control in taskForm -->
+    <input id="title" formControlName="title" type="text"
+           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <!-- Task Description Textarea -->
+  <div class="mb-4">
+    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+    <!-- formControlName 'description' binds textarea value to form -->
+    <textarea id="description" formControlName="description"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+  </div>
+  <!-- Task Due Date Picker -->
+  <div class="mb-4">
+    <label for="dueDate" class="block text-gray-700 text-sm font-bold mb-2">Due Date</label>
+    <!-- Using type="date" for date selection -->
+    <input id="dueDate" formControlName="dueDate" type="date"
+           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <!-- Task Priority Dropdown -->
+  <div class="mb-4">
+    <label for="priority" class="block text-gray-700 text-sm font-bold mb-2">Priority</label>
+    <!-- Dropdown populated dynamically using *ngFor over 'priorities' array -->
+    <select id="priority" formControlName="priority"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      <option *ngFor="let p of priorities" [value]="p">{{ p }}</option>
+    </select>
+  </div>
+  <!-- Assignee Multi-Select Dropdown -->
+  <div class="mb-4">
+    <label for="assigneeIds" class="block text-gray-700 text-sm font-bold mb-2">Assignees</label>
+    <!-- Allows selecting multiple employees for the task -->
+    <select multiple id="assigneeIds" formControlName="assigneeIds"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <!-- Display each employee's username, value is their ID -->
+      <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.username }}</option>
+    </select>
+  </div>
+  <!-- Tags Input -->
+  <div class="mb-4">
+    <label for="tags" class="block text-gray-700 text-sm font-bold mb-2">Tags</label>
+    <!-- Comma-separated tags for categorizing the task -->
+    <input id="tags" formControlName="tags" type="text"
+           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <!-- Submit Button -->
+  <button type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    Create Task
+  </button>
+</form>

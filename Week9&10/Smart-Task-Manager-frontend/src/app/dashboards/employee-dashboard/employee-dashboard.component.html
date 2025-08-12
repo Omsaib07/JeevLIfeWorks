@@ -1,0 +1,40 @@
+<div class="container mx-auto p-4">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Employee Dashboard</h1>
+    <!-- Logout button triggers logout() method in the TS file -->
+    <button (click)="logout()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Logout
+    </button>
+  </div>
+
+  <!-- Section title for assigned tasks -->
+  <h2 class="text-2xl font-semibold mb-4">Your Assigned Tasks</h2>
+  <!-- If there are tasks, show them in a list -->
+  <div *ngIf="tasks.length > 0" class="space-y-4">
+    <!-- Loop through all tasks and display each task -->
+    <div *ngFor="let task of tasks" class="p-4 bg-white shadow-md rounded-lg">
+      <!-- Task title -->
+      <h3 class="text-lg font-bold">{{ task.title }}</h3>
+      <!-- Task details -->
+      <p class="text-sm text-gray-600">Description: {{ task.description }}</p>
+      <p class="text-sm text-gray-600">Due Date: {{ task.dueDate | date }}</p>
+      <p class="text-sm text-gray-600">Priority: {{ task.priority }}</p>
+      <!-- Dropdown to update the task's status -->
+      <div class="mt-2">
+        <label for="status-{{ task.id }}" class="block text-sm font-medium text-gray-700">Update Status:</label>
+        <!-- Select dropdown with available statuses -->
+        <select id="status-{{ task.id }}" (change)="updateTaskStatus(task.id!, $event)"
+                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <!-- Loop through possible task statuses -->
+          <option *ngFor="let status of taskStatuses" [value]="status" [selected]="task.status === status">
+            {{ status }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- If no tasks are assigned, show a message -->
+  <div *ngIf="tasks.length === 0" class="text-gray-500">
+    You have no tasks assigned.
+  </div>
+</div>
